@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>
+        {% block titulo %}
+        Livraria Encanto
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="cabecalho">
+
+        <a class="marca"
+           href="{{ url_for('livros.inicio') }}">
+            📚 Livraria Encanto
+        </a>
+
+        <nav>
+            <a href="{{ url_for('livros.inicio') }}">
+                Catálogo
+            </a>
+
+            <a href="{{ url_for('livros.desejos') }}">
+                ♡ Desejos
+            </a>
+
+            <a href="{{ url_for('livros.reservas') }}">
+                Reservas
+            </a>
+        </nav>
+
+    </header>
+
+    <main class="conteudo">
+
+        {% block conteudo %}
+        {% endblock %}
+
+    </main>
+
+    <footer>
+        Feito com carinho para quem ama livros ♡
+    </footer>
+
+</body>
+</html>

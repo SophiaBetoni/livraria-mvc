@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Lista de desejos | Livraria Encanto
+{% endblock %}
+
+{% block conteudo %}
+
+<h1>♡ Minha lista de desejos</h1>
+
+<p class="subtitulo">
+    Guarde aqui os livros que quer ler.
+</p>
+
+<div class="grade">
+
+    {% for livro in livros %}
+
+        {% include '_livro.html' %}
+
+    {% else %}
+
+        <p>
+            Sua lista está vazia.
+            Volte ao catálogo e escolha um livro!
+        </p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

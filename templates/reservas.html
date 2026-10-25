@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Reservas | Livraria Encanto
+{% endblock %}
+
+{% block conteudo %}
+
+<h1>📖 Minhas reservas</h1>
+
+<p class="subtitulo">
+    Acompanhe os livros que você reservou.
+</p>
+
+<div class="grade">
+
+    {% for livro in livros %}
+
+        {% include '_livro.html' %}
+
+    {% else %}
+
+        <p>
+            Você ainda não reservou nenhum livro.
+        </p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

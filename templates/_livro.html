@@ -1,0 +1,79 @@
+<article class="cartao">
+
+    <div class="capa">
+        📖
+    </div>
+
+    <div class="detalhes">
+
+        <span class="genero">
+            {{ livro.genero }}
+        </span>
+
+        <h3>
+            {{ livro.titulo }}
+        </h3>
+
+        <p>
+            {{ livro.autor }}
+        </p>
+
+        <div class="acoes">
+
+            <form
+                method="post"
+                action="{{ url_for('livros.atualizar', livro_id=livro.id, acao='desejo') }}"
+            >
+
+                <input
+                    type="hidden"
+                    name="origem"
+                    value="{{ request.endpoint }}"
+                >
+
+                <button
+                    class="botao secundario"
+                    type="submit"
+                >
+
+                    {% if livro.desejado %}
+                        ♥ Remover desejo
+                    {% else %}
+                        ♡ Quero ler
+                    {% endif %}
+
+                </button>
+
+            </form>
+
+            <form
+                method="post"
+                action="{{ url_for('livros.atualizar', livro_id=livro.id, acao='reserva') }}"
+            >
+
+                <input
+                    type="hidden"
+                    name="origem"
+                    value="{{ request.endpoint }}"
+                >
+
+                <button
+                    class="botao"
+                    type="submit"
+                >
+
+                    {% if livro.reservado %}
+                        Cancelar reserva
+                    {% else %}
+                        Reservar
+                    {% endif %}
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</article>
